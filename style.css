@@ -1,0 +1,254 @@
+/* スクロール */
+html{
+  scroll-behavior: smooth;
+}
+
+/* ////////////// 背景画像 //////////////// */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  color: #000;  /* 文字の色 */
+
+  background-image: url("img/Back_images.jpg");
+  background-size: cover;        /* 画面いっぱい */
+  background-position: center;   /* 中央 */
+  background-repeat: no-repeat;  /* 繰り返さない */
+  background-attachment: fixed;  /* スクロールしても固定 */
+}
+
+
+/* 全体調整 */
+.section {
+  background: rgba(255, 255, 255, 0.6); /* 白の半透明 */
+  border-radius: 12px;
+
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+
+/* ヘッダー */
+header {
+  position: fixed;          /* ヘッダーを画面上部に固定（スクロールしても常に表示） */
+width: 100%;              /* 横幅を画面いっぱいにする */
+background: #fff;         /* 背景色を白にする */
+color: #000;              /* 文字色を黒にする */
+padding: 5px 30px;       /* 上下5px・左右30pxの内側余白 */
+
+display: flex;            /* Flexboxレイアウトを使用 */
+align-items: center;      /* 縦方向（高さ方向）を中央揃え */
+
+justify-content: flex-start; /* 横方向を左寄せに配置 */
+gap: 40px;                /* ロゴとナビボタンの間隔を40pxあける */
+
+box-shadow: 0 2px 10px #000; /* 下方向に影を付けてヘッダーを浮かせる */
+z-index: 200;             /* 他要素より前面に表示（重なり順の指定） */
+}
+
+/* ////////////// ボタン //////////////// */
+nav {
+  display: flex;
+  gap: 10px; /* ボタン同士の間隔 */
+}
+
+/*  ボタンの背景  */
+nav button:hover {
+  background: #444;
+}
+
+/* 名前とボタン */
+.page {
+  padding-top: 40px;
+  scroll-margin-top: 140px; /* ヘッダー固定対策 */
+}
+
+/* //////////////// 見出し //////////////// */
+.hero {
+  height: 20vh;
+  background: rgba(255, 255, 255, 0.6); /* 透過だけ */
+  backdrop-filter: blur(4px);    /* ガラス風 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-img {
+  width: 500px;      /* 好みで調整 */
+  max-width: 80%;
+  height: auto;
+}
+
+/* 自己紹介 */
+.profileArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 中央寄せ */
+}
+
+.profileName {
+  margin-bottom: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+}
+
+
+/* スキル */
+.skills-grid, .work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding-top: 20px;
+}
+
+.skill-card, .work-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #000;
+}
+
+.aboutContent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; /* 中央寄せ */
+  gap: 40px;
+}
+
+.aboutText{
+  max-width: 600px;
+  line-height: 1.8;
+  font-size: 18px;
+}
+
+/* 自分の写真 */
+.myImg{
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #0af;
+  box-shadow: 0 0 10px #000;
+}
+
+/* 枠の */
+.work-card img{
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+/* 制作 */
+.work-item {
+  display: flex;           /* 横並び */
+  gap: 20px;               /* 動画と説明の間隔 */
+  align-items: flex-start; /* 上揃え */
+}
+
+.work-desc {
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+/* 動画サイズ */
+.work-video {
+  width: 300px;
+  max-width: 100%;
+}
+
+/* テーブル */
+.profileTable {
+  border-collapse: collapse;
+  min-width: 320px;
+  max-width: 900px;
+  background: #fff;
+  box-shadow: 0 0 10px #000;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.profileTable th,
+.profileTable td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+.profileTable th {
+  width: 120px;
+  background: #f0f8ff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.profileTable tr:last-child th,
+.profileTable tr:last-child td {
+  border-bottom: none;
+}
+
+/* 制作物テーブル */
+.work-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.work-table td {
+  padding: 16px;
+  vertical-align: top; /* 動画と文章の上を揃える */
+}
+
+/* 左：動画 */
+.work-table .video-cell {
+  width: 40%;
+}
+
+/* 右：説明 */
+.work-table .desc-cell {
+  width: 60%;
+}
+
+/* 動画サイズ調整 */
+.work-table .work-video {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* クリックできる表示 */
+.zoom-item {
+  cursor: zoom-in;
+}
+
+/* モーダル背景 */
+#media-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 9999;
+
+  justify-content: center;
+  align-items: center;
+}
+
+/* 拡大表示の中身 */
+#modal-content img,
+#modal-content video {
+  max-width: 90%;
+  max-height: 90%;
+  box-shadow: 0 0 20px #000;
+}
+
+/* 閉じるボタン */
+#modal-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+}
