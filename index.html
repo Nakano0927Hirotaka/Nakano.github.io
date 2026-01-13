@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+  </head>
+  <body>
+    
+<header>
+  <h1 class="logo">ポートフォリオ</h1>
+  <nav>
+    <button class="nav-btn" data-target="hero">Top</button>
+    <button class="nav-btn" data-target="about">自己紹介</button>
+    <button class="nav-btn" data-target="skills">制作スキル</button>
+    <button class="nav-btn" data-target="gameWorks">制作物</button>
+    <button class="nav-btn" data-target="progWorks">プログラミング</button>
+  </nav>
+</header>
+
+<!-- 見出し -->
+<div id="hero" class="page">
+  <section class="hero">
+    <h2>仲野寛隆</h2>
+  </section>
+</div>
+
+<!-- 自己紹介 -->
+<div id="about" class="page">
+  <section class="section">
+
+    <h2>自己紹介</h2>
+
+    <div class="aboutContent">
+      <img src="img/Nakano_img.jpg" class="myImg">
+
+      <div class="profileArea">
+        <h3 class="profileName">仲野寛隆</h3>
+
+        <table class="profileTable">
+          <tr>
+            <th>生年月日</th>
+            <td>2005年9月27日</td>
+          </tr>
+          <tr>
+            <th>学校</th>
+            <td>横浜デジタルアーツ専門学校　ゲーム科</td>
+          </tr>
+          <tr>
+            <th>趣味</th>
+            <td>ゲーム、読書、アニメ・動画鑑賞</td>
+          </tr>
+          <tr>
+            <th>好きなゲーム</th>
+            <td>
+              Fate/Grand Order、ポケットモンスターシリーズ、モンスターハンターXX<br>
+              ブルーアーカイブ、ゼンレスゾーンゼロ、崩壊スターレール
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+  </section>
+</div>
+
+
+
+
+
+<!-- スキル -->
+<div id="skills" class="page">
+  <section class="section">
+    <h2>制作スキル</h2>
+
+    <table class="profileTable">
+      <tr>
+        <th>開発言語</th>
+        <td>C言語、C#、C++、Java、HTML、CSS</td>
+      </tr>
+      <tr>
+        <th>開発環境</th>
+        <td>Unity、VisualStudio、VisualStudio Code、Unreal Engine4、GitHub</td>
+      </tr>
+    </table>
+
+  </section>
+</div>
+
+
+
+
+<!-- 作ったゲーム -->
+<div id="gameWorks" class="page">
+  <section class="section">
+    <h2>制作物</h2>
+    <div class="work-grid">
+      <div class="work-card">
+        <!-- テーブル -->
+        <table class="work-table">
+          <!-- スネーク -->
+          <tr>
+            <!-- 動画 -->
+            <td class="video-cell">
+              <video class="work-video zoom-item" controls muted>
+                <source src="mp/スネーク.mp4" type="video/mp4">
+              </video>
+            </td>
+            <!-- 説明 -->
+            <td class="desc-cell">
+              <h2>スネーク</h2>
+              <p><strong>概要</strong></p>
+              舞台に出てくる餌を食べて大きくしてスコアを上げていくゲームです。<br>
+              制作時間：約20時間<br>
+              環境：Unity<br>
+            </td>
+          </tr>
+        
+          <!-- チェス -->
+          <tr>
+            <!-- 動画 -->
+            <td class="video-cell">
+              <video class="work-video zoom-item" controls muted>
+                <source src="mp/Chess.mp4" type="video/mp4">
+                お使いのブラウザは動画に対応していません。
+              </video>
+            </td>
+            <!-- 説明 -->
+            <td class="desc-cell">
+              <h2>チェス</h2>
+              <p><strong>概要</strong></p>
+              チェスをC++で組みました。まだ制作中です。<br>
+              制作時間：約14時間<br>
+              環境：C++<br>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="video-cell">
+              <img src="img/Chess_cpp_2.png" class="zoom-item">
+            </td>
+            <td>
+              <br>
+            </td>
+          </tr>
+        </table>
+
+    </div>
+  </section>
+</div>
+
+
+
+<!-- プログラミング -->
+<div id="progWorks" class="page">
+  <section class="section">
+    <h2>プログラミング</h2>
+    <div class="work-grid">
+      <div class="work-card">
+        <table class="work-table">
+          <tr>
+            チェス
+            <td class="video-cell">
+              <img src="img/Chess_cpp_2.png" class="zoom-item">
+            </td>
+            <td class="desc-cell">
+              <h2>アピールポイント</h2>
+              ・２次元配列リスト管理<br>
+              ・駒の動きをそれぞれ１つの関数で白黒を分けて動けるようにしている<br>
+            </td>
+          </tr>
+        </table>
+        <p>C++ & DxLib</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- 拡大表示モーダル -->
+<div id="media-modal">
+  <span id="modal-close">×</span>
+  <div id="modal-content"></div>
+</div>
+
+</body>
+</html>
