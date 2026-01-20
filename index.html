@@ -16,6 +16,7 @@
     <button class="nav-btn" data-target="about">自己紹介</button>
     <button class="nav-btn" data-target="skills">制作スキル</button>
     <button class="nav-btn" data-target="gameWorks">制作物</button>
+    <button class="nav-btn" data-target="progWorks">プログラミング</button>
   </nav>
 </header>
 
@@ -94,7 +95,8 @@
 <!-- 作ったゲーム -->
 <div id="gameWorks" class="page">
   <section class="section">
-    <h2>制作物</h2>
+    <h1>制作物</h1>
+    <h1>自作</h1>
     <div class="work-grid">
       <div class="work-card">
         <!-- テーブル -->
@@ -114,6 +116,10 @@
               舞台に出てくる餌を食べて大きくしてスコアを上げていくゲームです。<br>
               制作時間：約20時間<br>
               環境：Unity<br>
+              プラットフォーム：Android<br>
+              <p><strong>アピールポイント</strong></p>
+              ・敵の数を管理<br>
+              ・マス上にしてスマホ用<br>
             </td>
           </tr>
         
@@ -123,6 +129,7 @@
             <td class="video-cell">
               <video class="work-video zoom-item" controls muted>
                 <source src="mp/Chess.mp4" type="video/mp4">
+                <img src="img/Chess_cpp_2.png" class="zoom-item">
                 お使いのブラウザは動画に対応していません。
               </video>
             </td>
@@ -133,26 +140,49 @@
               チェスをC++で組みました。まだ制作中です。<br>
               制作時間：約14時間<br>
               環境：C++<br>
-              アピールポイント<br>
-              ・２次元配列リスト管理<br>
-              ・駒の動きをそれぞれ１つの関数で白黒を分けて動けるようにしています。<br>
-            </td>
-          </tr>
+              プラットフォーム：Android<br>
 
-          <tr>
-            <td class="video-cell">
-              <img src="img/Chess_cpp_2.png" class="zoom-item">
+              <p><strong>アピールポイント</strong></p>
+              ・２次元配列リスト管理<br>
+              ・駒の動きをそれぞれ１つの関数で白黒を分けて動けるようにしている<br>
             </td>
-            <td>
-              <br>
+          <tr>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+      <h1>チーム制作</h1>
+      <div class="work-grid">
+      <div class="work-card">
+        <!-- テーブル -->
+        <table class="work-table">
+          <!-- ピンポンダッシュ -->
+          <tr>
+            <!-- 動画 -->
+            <td class="video-cell">
+              <video class="work-video zoom-item" controls muted>
+                <source src="mp/PingPongDash.mp4" type="video/mp4">
+              </video>
+            </td>
+            <!-- 説明 -->
+            <td class="desc-cell">
+              <h2>PingPongDash</h2>
+              <p><strong>概要</strong></p>
+              舞台に出てくる餌を食べて大きくしてスコアを上げていくゲームです。<br>
+              制作時間：約20時間<br>
+              環境：Unity<br>
+              プラットフォーム：Android<br>
+              <p><strong>アピールポイント</strong></p>
+              ・敵の数を管理<br>
+              ・マス上にしてスマホ用<br>
             </td>
           </tr>
         </table>
-
+      </div>
     </div>
-  </section>
+    </section>
 </div>
-
 
 <!-- 拡大表示モーダル -->
 <div id="media-modal">
