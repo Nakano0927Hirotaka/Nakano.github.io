@@ -1,1 +1,136 @@
+/* =================================
+   詳細ページ専用CSS
+================================= */
 
+/* タイトル */
+.detail-title {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.detail-subtitle {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+/* 動画エリア */
+.detail-video {
+  width: 100%;
+  max-width: 800px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  margin-bottom: 40px;
+}
+
+/* 情報ボックス */
+.info-box {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  margin-bottom: 30px;
+}
+
+.info-box h2 {
+  margin-bottom: 15px;
+  border-left: 6px solid #0077ff;
+  padding-left: 10px;
+}
+
+.info-box ul {
+  padding-left: 20px;
+  line-height: 1.8;
+}
+
+/* ソースコードギャラリー */
+.code-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.code-item {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.code-item img {
+  width: 100%;
+  max-width: 800px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.code-item p {
+  line-height: 1.8;
+}
+
+/* 学んだことエリア */
+.learning-box {
+  background: linear-gradient(135deg, #eef6ff, #ffffff);
+  padding: 25px;
+  border-radius: 12px;
+  margin-top: 40px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.learning-box h2 {
+  margin-bottom: 15px;
+}
+
+.learning-box li {
+  margin-bottom: 10px;
+  line-height: 1.7;
+}
+
+/* 戻るボタン */
+.back-link {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 10px 20px;
+  background: #0077ff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.back-link:hover {
+  background: #005fcc;
+}
+
+details {
+  margin-top: 15px;
+  background: #1e1e1e;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: bold;
+  color: #00ffff;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+summary:hover {
+  color: #ffffff;
+}
+
+pre {
+  background: #111;
+  padding: 15px;
+  overflow-x: auto;
+  border-radius: 8px;
+}
+
+code {
+  color: #e6e6e6;
+  font-family: Consolas, monospace;
+  font-size: 14px;
+}
