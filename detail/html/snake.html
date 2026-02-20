@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>スネーク | Portfolio</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+
+<header>
+  <h1 class="logo">ポートフォリオ</h1>
+  <nav>
+    <a href="../../index.html">← 制作物一覧へ戻る</a>
+  </nav>
+</header>
+
+<div class="page">
+  <section class="section">
+
+    <h1>スネーク</h1>
+
+    <video class="work-video" controls>
+      <source src="../../mp/スネーク.mp4" type="video/mp4">
+    </video>
+
+    <h2>設計の工夫</h2>
+    <div class="code-item">
+      <h3>マス単位移動設計</h3>
+      <img src="../img/snake/snake_player_5.png">
+      <p>グリッド管理により衝突判定を簡略化しました</p>
+    </div>
+    
+    <div class="code-item">
+      <h3>履歴ベース尾追従</h3>
+      <img src="../img/snake/snake_player_3.png">
+      <p>座標履歴を用いて自然な遅延追従を実現しました</p>
+    </div>
+    
+    <div class="code-item">
+      <h3>リスク付きダッシュ</h3>
+      <img src="../img/snake/snake_player_4.png">
+      <p>尾を消費することで戦略性を追加しました</p>
+    </div>
+    
+    <div class="code-item">
+      <h3>コメント</h3>
+      <img src="../img/snake/snake_player_1.png">
+      <p>変数や関数にできる限りコメントつけて後から見てもどういう処理なのかをわかりやすくしました</p>
+    </div>
+
+    <div class="learning-box">
+      <h2>この制作で学んだこと</h2>
+      <ul>
+      <li>座標管理によるゲームロジックの簡略化</li>
+      <li>履歴データを用いた追従アルゴリズム設計</li>
+      <li>enumを使った可読性の高い方向制御</li>
+      <li>プレイヤー体験を意識した仕様設計</li>
+      </ul>
+    </div>
+
+    <div class="learning-box">
+      <h2>感想</h2>
+      <ul>
+      <li>初めてのことをやってみたのでわからないことやバグが多くありました</li>
+      <li>そのおかけで学べることが多くありました</li>
+      <li>今後はもっと改良できるようにしたいです</li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+</body>
+</html>
