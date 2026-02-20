@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>カード殲滅戦 | Portfolio</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+
+<header>
+  <h1 class="logo">ポートフォリオ</h1>
+  <nav>
+    <a href="../../index.html">← 制作物一覧へ戻る</a>
+  </nav>
+</header>
+
+<div class="page">
+  <section class="section">
+
+    <h1>カード殲滅戦</h1>
+
+    <video class="work-video" controls>
+      <source src="../../mp/card.mp4" type="video/mp4">
+    </video>
+
+    <h2>設計の工夫</h2>
+    <div class="code-item">
+      <h3>自作のAPI連携</h3>
+      <img src="../img/card/card_data .png">
+      <img src="../img/card/card_data_script.png">
+      <img src="../img/card/card_data_load_1.png">
+      <p>
+          カード情報を外部APIから取得し、Unity側で動的に反映する設計にしました。<br>
+          ゲームロジックとカードデータを分離することで、
+          カード追加やステータス調整をコード変更なしで行える構造にしています。
+        </p>
+    </div>
+
+    <div class="code-item">
+        <h3>② ステートマシンによるフェーズ管理</h3>
+        <img src="../img/card/state_1.png">
+        <img src="../img/card/state_2.png">
+        <p>
+          編成フェーズとバトルフェーズをステートマシンで管理しました。<br>
+          処理を分離することで、可読性と拡張性を向上させ、
+          将来的な機能追加（特殊フェーズなど）にも対応できる設計にしています。
+        </p>
+      </div>
+      
+      <div class="code-item">
+        <h3>③ スピード順ターン制御</h3>
+        <img src="../img/card/speedTrun_1.png">
+        <p>
+          すべてのカードを統合し、速さステータス順にソートしてターンを管理しています。<br>
+          これにより、ステータスが戦略に直結するゲーム設計にしました。
+        </p>
+      </div>
+      
+      <div class="code-item">
+        <h3>④ 自動ランクアップシステム</h3>
+        <img src="../img/card/rank_1.png">
+        <img src="../img/card/rank_2.png">
+        <p>
+          同一IDのカードをグループ化し、3枚以上揃うと自動でランクアップする仕組みを実装しました。<br>
+          LINQのGroupByを使用し、効率的にカード管理を行っています。
+        </p>
+      </div>
+      
+      <div class="learning-box">
+          <h2>この制作で学んだこと</h2>
+          <ul>
+            <li>
+              API連携やカードゲーム設計など未経験分野に挑戦し、
+              データ駆動設計の重要性を学びました。
+            </li>
+            <li>
+              スクリプト分割を行う中で、責務の切り分けと可読性のバランスを
+              考えることの重要性を実感しました。
+            </li>
+            <li>
+              カード移動やランクアップ処理の実装では多くのバグに直面しましたが、
+              デバッグを通じて問題を一つずつ整理する力が身につきました。
+            </li>
+            <li>
+              仕様設計の重要性を強く感じ、事前設計の精度が
+              開発効率に大きく影響することを学びました。
+            </li>
+          </ul>
+        </div>
+  </section>
+</div>
+
+</body>
+</html>
