@@ -1,131 +1,103 @@
-/* スクロール */
-html{
+/* =================================
+   ① 基本設定
+================================= */
+html {
   scroll-behavior: smooth;
 }
 
-/* ////////////// 背景画像 //////////////// */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  color: #000;  /* 文字の色 */
-
+  color: #000;
   background-image: url("img/Back_images.jpg");
-  background-size: cover;        /* 画面いっぱい */
-  background-position: center;   /* 中央 */
-  background-repeat: no-repeat;  /* 繰り返さない */
-  background-attachment: fixed;  /* スクロールしても固定 */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-
-/* 全体調整 */
+/* =================================
+   ② レイアウト
+================================= */
 .section {
-  background: rgba(255, 255, 255, 0.6); /* 白の半透明 */
+  background: rgba(255, 255, 255, 0.6);
   border-radius: 12px;
-
   max-width: 1000px;
   margin: 40px auto;
   padding: 20px;
 }
 
-
-/* ヘッダー */
-header {
-  position: fixed;          /* ヘッダーを画面上部に固定（スクロールしても常に表示） */
-width: 100%;              /* 横幅を画面いっぱいにする */
-background: #fff;         /* 背景色を白にする */
-color: #000;              /* 文字色を黒にする */
-padding: 5px 30px;       /* 上下5px・左右30pxの内側余白 */
-
-display: flex;            /* Flexboxレイアウトを使用 */
-align-items: center;      /* 縦方向（高さ方向）を中央揃え */
-
-justify-content: flex-start; /* 横方向を左寄せに配置 */
-gap: 40px;                /* ロゴとナビボタンの間隔を40pxあける */
-
-box-shadow: 0 2px 10px #000; /* 下方向に影を付けてヘッダーを浮かせる */
-z-index: 200;             /* 他要素より前面に表示（重なり順の指定） */
+.page {
+  padding-top: 40px;
+  scroll-margin-top: 140px;
 }
 
-/* ////////////// ボタン //////////////// */
+/* =================================
+   ③ ヘッダー
+================================= */
+header {
+  position: fixed;
+  width: 100%;
+  background: #fff;
+  color: #000;
+  padding: 5px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 40px;
+  box-shadow: 0 2px 10px #000;
+  z-index: 200;
+}
+
 nav {
   display: flex;
-  gap: 10px; /* ボタン同士の間隔 */
+  gap: 10px;
 }
 
-/*  ボタンの背景  */
 nav button:hover {
   background: #444;
 }
 
-/* 名前とボタン */
-.page {
-  padding-top: 40px;
-  scroll-margin-top: 140px; /* ヘッダー固定対策 */
-}
-
-/* //////////////// 見出し //////////////// */
+/* =================================
+   ④ ヒーロー
+================================= */
 .hero {
   height: 20vh;
-  background: rgba(255, 255, 255, 0.6); /* 透過だけ */
-  backdrop-filter: blur(4px);    /* ガラス風 */
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(4px);
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 .hero-img {
-  width: 500px;      /* 好みで調整 */
+  width: 500px;
   max-width: 80%;
-  height: auto;
 }
 
-/* 自己紹介 */
+/* =================================
+   ⑤ 自己紹介
+================================= */
+.aboutContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
 .profileArea {
   display: flex;
   flex-direction: column;
-  align-items: center; /* 中央寄せ */
+  align-items: center;
 }
 
 .profileName {
   margin-bottom: 15px;
   font-size: 24px;
   font-weight: bold;
-  letter-spacing: 0.1em;
 }
 
-
-/* スキル */
-.skills-grid, .work-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  padding-top: 20px;
-}
-
-.skill-card, .work-card {
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px #000;
-}
-
-.aboutContent {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center; /* 中央寄せ */
-  gap: 40px;
-}
-
-.aboutText{
-  max-width: 600px;
-  line-height: 1.8;
-  font-size: 18px;
-}
-
-/* 自分の写真 */
-.myImg{
+.myImg {
   width: 200px;
   height: 200px;
   object-fit: cover;
@@ -134,38 +106,36 @@ nav button:hover {
   box-shadow: 0 0 10px #000;
 }
 
-/* 枠の */
-.work-card img{
+/* =================================
+   ⑥ カード系
+================================= */
+.skills-grid,
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding-top: 20px;
+}
+
+.skill-card,
+.work-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #000;
+}
+
+.work-card img {
   width: 100%;
-  height: auto;
-  object-fit: cover;
   border-radius: 8px;
   margin: 10px 0;
 }
 
-/* 制作 */
-.work-item {
-  display: flex;           /* 横並び */
-  gap: 20px;               /* 動画と説明の間隔 */
-  align-items: flex-start; /* 上揃え */
-}
-
-.work-desc {
-  max-width: 800px;
-  line-height: 1.6;
-}
-
-/* 動画サイズ */
-.work-video {
-  width: 300px;
-  max-width: 100%;
-}
-
-/* テーブル */
+/* =================================
+   ⑦ テーブル
+================================= */
 .profileTable {
   border-collapse: collapse;
-  min-width: 320px;
-  max-width: 900px;
   background: #fff;
   box-shadow: 0 0 10px #000;
   border-radius: 10px;
@@ -179,15 +149,9 @@ nav button:hover {
 }
 
 .profileTable th {
-  width: 120px;
   background: #f0f8ff;
-  text-align: left;
   font-weight: bold;
-}
-
-.profileTable tr:last-child th,
-.profileTable tr:last-child td {
-  border-bottom: none;
+  text-align: left;
 }
 
 /* 制作物テーブル */
@@ -199,43 +163,46 @@ nav button:hover {
 
 .work-table td {
   padding: 16px;
-  vertical-align: top; /* 動画と文章の上を揃える */
+  vertical-align: top;
 }
 
-/* 左：動画 */
-.work-table .video-cell {
-  width: 40%;
-}
+.video-cell { width: 40%; }
+.desc-cell { width: 60%; }
 
-/* 右：説明 */
-.work-table .desc-cell {
-  width: 60%;
-}
-
-/* 動画サイズ調整 */
-.work-table .work-video {
+.work-video {
   width: 100%;
   max-width: 400px;
 }
 
-/* クリックできる表示 */
+/* =================================
+   ⑧ リンク
+================================= */
+.game-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.game-link:hover {
+  color: #0077ff;
+}
+
+/* =================================
+   ⑨ モーダル
+================================= */
 .zoom-item {
   cursor: zoom-in;
 }
 
-/* モーダル背景 */
 #media-modal {
   display: none;
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.85);
   z-index: 9999;
-
   justify-content: center;
   align-items: center;
 }
 
-/* 拡大表示の中身 */
 #modal-content img,
 #modal-content video {
   max-width: 90%;
@@ -243,7 +210,6 @@ nav button:hover {
   box-shadow: 0 0 20px #000;
 }
 
-/* 閉じるボタン */
 #modal-close {
   position: absolute;
   top: 20px;
@@ -253,44 +219,37 @@ nav button:hover {
   cursor: pointer;
 }
 
-/* =========================
-   スマホ対応（768px以下）
-   ========================= */
+/* =================================
+   ⑩ コードギャラリー
+================================= */
+.code-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.code-item img {
+  width: 100%;
+  max-width: 700px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #000;
+}
+
+/* =================================
+   ⑪ レスポンシブ
+================================= */
 @media screen and (max-width: 768px) {
 
-  /* ヘッダー */
   header {
-    flex-direction: column;   /* 縦並び */
+    flex-direction: column;
     align-items: flex-start;
     gap: 10px;
     padding: 10px;
   }
 
-  nav {
-    flex-wrap: wrap;          /* ボタン折り返し */
-    gap: 6px;
-  }
-
-  nav button {
-    font-size: 14px;
-    padding: 6px 10px;
-  }
-
-  /* ヘッダー分の余白調整 */
-  .page {
-    scroll-margin-top: 200px;
-  }
-
-  /* ヒーロー */
-  .hero {
-    height: auto;
-    padding: 40px 10px;
-  }
-
-  /* 自己紹介：横 → 縦 */
   .aboutContent {
     flex-direction: column;
-    gap: 20px;
   }
 
   .myImg {
@@ -298,18 +257,6 @@ nav button:hover {
     height: 150px;
   }
 
-  /* テーブルをスマホ幅に */
-  .profileTable {
-    width: 100%;
-    min-width: unset;
-    font-size: 14px;
-  }
-
-  .profileTable th {
-    width: auto;
-  }
-
-  /* 制作物テーブル：縦並び */
   .work-table tr {
     display: block;
     margin-bottom: 30px;
@@ -318,23 +265,13 @@ nav button:hover {
   .work-table td {
     display: block;
     width: 100%;
-    padding: 10px 0;
   }
 
-  .work-table .video-cell,
-  .work-table .desc-cell {
-    width: 100%;
-  }
-
-  /* 動画サイズ */
   .work-video {
-    width: 100%;
     max-width: 100%;
   }
 
-  /* セクション余白 */
   .section {
     margin: 20px 10px;
-    padding: 15px;
   }
 }
