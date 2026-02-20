@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>チェス | Portfolio</title>
+  <link rel="stylesheet" href="../../style.css">
+
+  <!-- コードハイライト -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+
+</head>
+<body>
+
+<header>
+  <h1 class="logo">ポートフォリオ</h1>
+  <nav>
+    <a href="../../index.html">← 制作物一覧へ戻る</a>
+  </nav>
+</header>
+
+<div class="page">
+  <section class="section">
+
+    <h1>チェス</h1>
+
+    <video class="work-video" controls>
+      <source src="../../mp/Chess.mp4" type="video/mp4">
+    </video>
+
+    <h2>設計の工夫</h2>
+
+    <div class="code-item">
+        <h3>全駒の移動ロジック</h3>
+        <img src="../img/chess/chess.png">
+        <p>
+          各駒（ポーン、ルーク、ナイト、ビショップ、クイーン、キング）の移動処理を
+          関数ごとに分離し、switch文で呼び出す形にしています。
+        </p>
+      
+        <details>
+          <summary> ポーンの移動処理</summary>
+          <pre><code class="language-cpp">
+      void CalcPawnMove(int board[BOARD_ROW][BOARD_COL],
+                        bool canMove[BOARD_ROW][BOARD_COL],
+                        int x, int y, int turn) {
+          ClearCanMove(canMove);
+          int dir = (turn == 1) ? -1 : 1;
+          int ny = y + dir;
+          if(ny >= 0 && ny < BOARD_ROW && board[ny][x] == NONE)
+              canMove[ny][x] = true;
+          if(turn == 1 && y==6 && board[5][x]==NONE && board[4][x]==NONE)
+              canMove[4][x]=true;
+          if(turn == -1 && y==1 && board[2][x]==NONE && board[3][x]==NONE)
+              canMove[3][x]=true;
+          if(x>0 && ny>=0 && ny<BOARD_ROW && board[ny][x-1]*turn<0)
+              canMove[ny][x-1]=true;
+          if(x<BOARD_COL-1 && ny>=0 && ny<BOARD_ROW && board[ny][x+1]*turn<0)
+              canMove[ny][x+1]=true;
+      }
+          </code></pre>
+        </details>
+      
+        <details>
+          <summary> ルークの移動処理</summary>
+          <pre><code class="language-cpp">
+      void CalcRookMove(int board[BOARD_ROW][BOARD_COL],
+                        bool canMove[BOARD_ROW][BOARD_COL],
+                        int x, int y, int turn) {
+          ClearCanMove(canMove);
+          const int dx[4]={0,0,-1,1}, dy[4]={-1,1,0,0};
+          for(int dir=0; dir<4; dir++){
+              int nx=x+dx[dir], ny=y+dy[dir];
+              while(nx>=0 && nx<BOARD_COL && ny>=0 && ny<BOARD_ROW){
+                  if(board[ny][nx]==NONE) canMove[ny][nx]=true;
+                  else if(board[ny][nx]*turn<0){ canMove[ny][nx]=true; break;}
+                  else break;
+                  nx+=dx[dir]; ny+=dy[dir];
+              }
+          }
+      }
+          </code></pre>
+        </details>
+      
+        <details>
+          <summary> ナイトの移動処理</summary>
+          <pre><code class="language-cpp">
+      void CalcKnightMove(int board[BOARD_ROW][BOARD_COL],
+                          bool canMove[BOARD_ROW][BOARD_COL],
+                          int x, int y, int turn){
+          ClearCanMove(canMove);
+          const int dx[8]={1,2,2,1,-1,-2,-2,-1};
+          const int dy[8]={-2,-1,1,2,2,1,-1,-2};
+          for(int i=0;i<8;i++){
+              int nx=x+dx[i], ny=y+dy[i];
+              if(nx<0||nx>=BOARD_COL||ny<0||ny>=BOARD_ROW) continue;
+              if(board[ny][nx]==NONE || board[ny][nx]*turn<0)
+                  canMove[ny][nx]=true;
+          }
+      }
+          </code></pre>
+        </details>
+      
+        <details>
+          <summary> ビショップの移動処理</summary>
+          <pre><code class="language-cpp">
+      void CalcBishopMove(int board[BOARD_ROW][BOARD_COL],
+                          bool canMove[BOARD_ROW][BOARD_COL],
+                          int x, int y, int turn){
+          ClearCanMove(canMove);
+          const int dx[4]={-1,1,-1,1}, dy[4]={-1,-1,1,1};
+          for(int dir=0;dir<4;dir++){
+              int nx=x+dx[dir], ny=y+dy[dir];
+              while(nx>=0 && nx<BOARD_COL && ny>=0 && ny<BOARD_ROW){
+                  if(board[ny][nx]==NONE) canMove[ny][nx]=true;
+                  else if(board[ny][nx]*turn<0){ canMove[ny][nx]=true; break;}
+                  else break;
+                  nx+=dx[dir]; ny+=dy[dir];
+              }
+          }
+      }
+          </code></pre>
+        </details>
+      
+        <details>
+          <summary> クイーンの移動処理</summary>
+          <pre><code class="language-cpp">
+      void CalcQueeMove(int board[BOARD_ROW][BOARD_COL],
+                        bool canMove[BOARD_ROW][BOARD_COL],
+                        int x, int y, int turn){
+          ClearCanMove(canMove);
+          const int dx[8]={0,0,-1,1,-1,1,-1,1};
+          const int dy[8]={-1,1,0,0,-1,-1,1,1};
+          for(int dir=0;dir<8;dir++){
+              int nx=x+dx[dir], ny=y+dy[dir];
+              while(nx>=0 && nx<BOARD_COL && ny>=0 && ny<BOARD_ROW){
+                  if(board[ny][nx]==NONE) canMove[ny][nx]=true;
+                  else if(board[ny][nx]*turn<0){ canMove[ny][nx]=true; break;}
+                  else break;
+                  nx+=dx[dir]; ny+=dy[dir];
+              }
+          }
+      }
+          </code></pre>
+        </details>
+      
+        <details>
+          <summary> キングの移動処理</summary>
+          <pre><code class="language-cpp">
+      void CalcKingMove(int board[BOARD_ROW][BOARD_COL],
+                        bool canMove[BOARD_ROW][BOARD_COL],
+                        int x, int y, int turn){
+          ClearCanMove(canMove);
+          const int dx[8]={-1,0,1,-1,1,-1,0,1};
+          const int dy[8]={-1,-1,-1,0,0,1,1,1};
+          for(int i=0;i<8;i++){
+              int nx=x+dx[i], ny=y+dy[i];
+              if(nx<0 || nx>=BOARD_COL || ny<0 || ny>=BOARD_ROW) continue;
+              if(board[ny][nx]==NONE || board[ny][nx]*turn<0)
+                  canMove[ny][nx]=true;
+          }
+      }
+          </code></pre>
+        </details>
+      </div>
+        </code></pre>
+      </details>
+      
+      <h3> 勝敗判定の一元管理</h3>
+      <p>
+        キングが取られた瞬間にゲーム終了と勝者を決定する処理を
+        MovePiece内にまとめました。
+        状態管理を一箇所に集約することで、
+        処理の分散を防いでいます。
+      </p>
+
+      <details>
+          <summary> 勝敗判定処理を見る</summary>
+          <pre><code class="language-cpp">
+    bool MovePiece(int board[BOARD_ROW][BOARD_COL],
+                 int fromX, int fromY,
+                 int toX, int toY,
+                 int turn)
+    {
+      int target = board[toY][toX];
+    
+      if (abs(target) == KING) {
+          gameOver = true;
+          winner = turn;
+      }
+    
+      board[toY][toX] = board[fromY][fromX];
+      board[fromY][fromX] = NONE;
+    
+      return true;
+    }
+          </code></pre>
+        </details>
+    
+      </div>
+
+  </section>
+</div>
+
+</body>
+</html>
