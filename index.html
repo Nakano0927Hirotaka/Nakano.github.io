@@ -95,11 +95,37 @@
 <div id="gameWorks" class="page">
   <section class="section">
     <h1>制作物</h1>
-    <h1>個人制作</h1>
+    <h1>自作</h1>
     <div class="work-grid">
       <div class="work-card">
         <!-- テーブル -->
         <table class="work-table">
+
+          <!-- カードゲーム -->
+          <tr>
+            <!-- 動画 -->
+            <td class="video-cell">
+              <video class="work-video zoom-item" controls muted>
+                <source src="mp/card.mp4" type="video/mp4">
+              </video>
+            </td>
+            <!-- 説明 -->
+            <td class="desc-cell">
+              <h2>
+                <a href="detail/html/card.html" class="game-link">カード殲滅戦</a>
+              </h2>
+              <p><strong>概要</strong></p>
+              AIと対戦する1対1のターン制カードゲームです。<br>
+              バトル場に配置したキャラカードで戦い、
+              相手のキャラをすべて戦闘不能にしたプレイヤーが勝利となります。<br>
+              本作は「編成フェーズ」と「バトルフェーズ」の2段階構成となっており、<br>
+              戦略的なデッキ構築とターン制バトルの両方を楽しめる設計にしています。<br>
+              制作時間：約40時間<br>
+              環境：Unity<br>
+              プラットフォーム：Android<br>
+            </td>
+          </tr>
+
           <!-- スネーク -->
           <tr>
             <!-- 動画 -->
@@ -110,15 +136,15 @@
             </td>
             <!-- 説明 -->
             <td class="desc-cell">
-              <h2>スネーク</h2>
+              <h2>
+                <a href="detail/html/snake.html" class="game-link">スネーク</a>
+              </h2>
               <p><strong>概要</strong></p>
               舞台に出てくる餌を食べて大きくしてスコアを上げていくゲームです。<br>
+              頭を相手や壁に当てるとゲームオーバーです。<br>
               制作時間：約20時間<br>
               環境：Unity<br>
               プラットフォーム：Android<br>
-              <p><strong>アピールポイント</strong></p>
-              ・スクリプトで敵の数を管理し、敵の数を調整できます。<br>
-              ・マス上にしてスマホで操作しやすくしました<br>
             </td>
           </tr>
         
@@ -134,13 +160,12 @@
             </td>
             <!-- 説明 -->
             <td class="desc-cell">
-              <h2>チェス</h2>
+              <h2><a href="detail/html/Chess.html" class="game-link">チェス</a></h2>
               <p><strong>概要</strong></p>
-              チェスをC++で組みました。まだ制作中です。<br>
+              チェスをC++で組みました<br>
               制作時間：約14時間<br>
               環境：C++<br>
               プラットフォーム：Android<br>
-
               <p><strong>アピールポイント</strong></p>
               ・２次元配列リスト管理<br>
               ・駒の動きをそれぞれ１つの関数で白黒を分けて動けるようにしている<br>
@@ -151,11 +176,39 @@
       </div>
     </div>
 
-      <h1>チーム制作</h1>
-      <div class="work-grid">
+    <h1>チーム制作</h1>
+    <div class="work-grid">
       <div class="work-card">
         <!-- テーブル -->
         <table class="work-table">
+          <!-- ロボットファイト -->
+           <tr>
+            <!-- 動画 -->
+            <td class="video-cell">
+              <video class="work-video zoom-item" controls muted>
+                <source src="mp/ロボット.mp4" type="video/mp4">
+              </video>
+            </td>
+            <!-- 説明 -->
+            <td class="desc-cell">
+              <h2><a href="detail/html/robot.html" class="game-link">ロボットファイト</a></h2>
+              <p><strong>概要</strong></p>
+              <p>
+              Unityで制作した1対1の3D格闘ゲームです。<br>
+            </p>
+            制作時間：約50時間<br>
+            環境：Unity<br>
+            プラットフォーム：PC、２つのコントローラー<br>
+            <p><strong>自分がしたところ</strong></p>
+            移動・ジャンプ・近接攻撃・飛び道具・防御といった
+            基本的な格闘アクションを実装しました。
+            プレイヤーの状態をステートマシンで管理し、
+            攻撃中・被弾中・防御中などの挙動を明確に分離しています。<br>
+            攻撃判定やダメージ処理もコンポーネント分割し、
+            拡張しやすい構造を意識して設計しました。
+            </td>
+          </tr>
+
           <!-- ピンポンダッシュ -->
           <tr>
             <!-- 動画 -->
@@ -168,12 +221,19 @@
             <td class="desc-cell">
               <h2>PingPongDash</h2>
               <p><strong>概要</strong></p>
-              制限時間に見回りの人から隠れながら鐘を鳴らし続けてスコアを上げていくゲームです。<br>
-              マウスを前後に動かすことでベルを鳴らすことができます。<br>
+              PC向けに制作したアクションゲームです。<br>
+              プレイヤーは制限時間内に見回りの敵から身を隠しながら、
+              鐘を鳴らしてスコアを獲得していきます。<br><br>
+              
+              マウスを前後に動かすことで鐘を鳴らし、
+              マウスホイール操作で物陰に隠れることができます。<br>
+              鐘を鳴らしている間はスコアが増加しますが、
+              敵に発見されるとリスクが発生するため、
+              タイミングと判断力が求められる設計にしています。
               制作時間：約30時間<br>
               環境：Unity<br>
               プラットフォーム：PC<br>
-              <p><strong>担当箇所</strong></p>
+              <p><strong>自分がしたところ</strong></p>
               ・マウスによる動かしてスコア加算をやりました。<br>
               ・ホイールすることで隠れるようにしました。<br>
             </td>
