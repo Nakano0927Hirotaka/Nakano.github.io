@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ロボットファイト | Portfolio</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+
+<header>
+  <h1 class="logo">ポートフォリオ</h1>
+  <nav>
+    <a href="../../index.html">← 制作物一覧へ戻る</a>
+  </nav>
+</header>
+
+<div class="page">
+  <section class="section">
+
+    <h1>ロボットファイト</h1>
+
+    <video class="work-video" controls>
+      <source src="../../mp/ロボット.mp4" type="video/mp4">
+    </video>
+
+    <h2>設計の工夫</h2>
+    <div class="code-item">
+        <h3>② ステートマシンによるフェーズ管理</h3>
+        <img src="../img/robot/istate.png">
+        <img src="../img/robot/dame_state_1.png">
+        <img src="../img/robot/dame_state_2.png">
+        <img src="../img/robot/defens.png">
+        <p>
+          編成フェーズとバトルフェーズをステートマシンで管理しました。<br>
+          処理を分離することで、可読性と拡張性を向上させ、
+          将来的な機能追加（特殊フェーズなど）にも対応できる設計にしています。<br>
+          そのおかげでアドバイスしてくれた日に修正と追加することができました。
+        </p>
+      </div>
+      
+      <div class="code-item">
+          <h3>② 攻撃判定の分離設計</h3>
+          <img src="../img/robot/attack.png">
+          <p>
+            AttackColliderクラスを用いて攻撃判定を独立管理しました。<br>
+            owner情報を持たせることで、自身の攻撃との衝突を無効化し、
+            汎用的に再利用可能な構造にしています。
+          </p>
+        </div>
+        
+        <div class="code-item">
+          <h3>③ クールタイムUIの可視化</h3>
+          <img src="../img/robot/cool.png">
+          <p>
+            パンチや弾のクールタイムをUIのfillAmountで可視化しました。<br>
+            プレイヤーに状況が直感的に伝わる設計を意識しています。
+          </p>
+        </div>
+        
+        <div class="code-item">
+            <h3>④ ダメージの統合管理</h3>
+            <img src="../img/robot/hp_1.png">
+            <img src="../img/robot/hp_2.png">
+            <p>
+              プレイヤーごとの体力を管理する専用スクリプトを作成し、
+              ダメージ処理・HP減少・死亡判定を一元管理しています。<br><br>
+          
+              HPが0になった際は現在の状態に応じて適切なステートへ遷移させ、
+              アニメーションや演出と連動する仕組みにしました。<br>
+          
+              状態管理システムと統合することで、
+              処理の重複を防ぎ、拡張しやすい構造を意識しています。
+            </p>
+        </div>
+      
+      <div class="learning-box">
+          <h2>この制作で学んだこと</h2>
+          <ul>
+            <li>
+              API連携やカードゲーム設計など未経験分野に挑戦し、
+              データ駆動設計の重要性を学びました。
+            </li>
+            <li>
+              スクリプト分割を行う中で、責務の切り分けと可読性のバランスを
+              考えることの重要性を実感しました。
+            </li>
+            <li>
+              カード移動やランクアップ処理の実装では多くのバグに直面しましたが、
+              デバッグを通じて問題を一つずつ整理する力が身につきました。
+            </li>
+            <li>
+              仕様設計の重要性を強く感じ、事前設計の精度が
+              開発効率に大きく影響することを学びました。
+            </li>
+          </ul>
+        </div>
+  </section>
+</div>
+
+</body>
+</html>
