@@ -1,274 +1,302 @@
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-  </head>
-  <body>
-    
-<header>
-  <h1 class="logo">ポートフォリオ</h1>
-  <nav>
-    <button class="nav-btn" data-target="hero">Top</button>
-    <button class="nav-btn" data-target="about">自己紹介</button>
-    <button class="nav-btn" data-target="skills">制作スキル</button>
-    <button class="nav-btn" data-target="gameWorks">制作物</button>
-  </nav>
-</header>
+/* =================================
+   ① 基本設定
+================================= */
+html {
+  scroll-behavior: smooth;
+}
 
-<!-- 見出し -->
-<div id="hero" class="page">
-  <section class="hero">
-    <h2>仲野寛隆</h2>
-  </section>
-</div>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  color: #000;
+  background-image: url("img/Back_images.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 
-<!-- 自己紹介 -->
-<div id="about" class="page">
-  <section class="section">
+/* =================================
+   ② レイアウト
+================================= */
+.section {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+}
 
-    <h2>自己紹介</h2>
+.page {
+  padding-top: 40px;
+  scroll-margin-top: 140px;
+}
 
-    <div class="aboutContent">
-      <img src="img/Nakano_img.jpg" class="myImg">
+/* =================================
+   ③ ヘッダー
+================================= */
+header {
+  position: fixed;
+  width: 100%;
+  background: #fff;
+  color: #000;
+  padding: 5px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 40px;
+  box-shadow: 0 2px 10px #000;
+  z-index: 200;
+}
 
-      <div class="profileArea">
-        <h3 class="profileName">仲野寛隆</h3>
+nav {
+  display: flex;
+  gap: 10px;
+}
 
-        <table class="profileTable">
-          <tr>
-            <th>生年月日</th>
-            <td>2005年9月27日</td>
-          </tr>
-          <tr>
-            <th>学校</th>
-            <td>横浜デジタルアーツ専門学校　ゲーム科</td>
-          </tr>
-          <tr>
-            <th>趣味</th>
-            <td>ゲーム、読書、アニメ・動画鑑賞</td>
-          </tr>
-          <tr>
-            <th>好きなゲーム</th>
-            <td>
-              Fate/Grand Order、ポケットモンスターシリーズ、モンスターハンターXX<br>
-              ブルーアーカイブ、ゼンレスゾーンゼロ、崩壊スターレール
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
+nav button:hover {
+  background: #444;
+}
 
-  </section>
-</div>
+/* =================================
+   ④ ヒーロー
+================================= */
+.hero {
+  height: 20vh;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.hero-img {
+  width: 500px;
+  max-width: 80%;
+}
 
+/* =================================
+   ⑤ 自己紹介
+================================= */
+.aboutContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
 
+.profileArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+.profileName {
+  margin-bottom: 15px;
+  font-size: 24px;
+  font-weight: bold;
+}
 
-<!-- スキル -->
-<div id="skills" class="page">
-  <section class="section">
-    <h2>制作スキル</h2>
+.myImg {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #0af;
+  box-shadow: 0 0 10px #000;
+}
 
-    <table class="profileTable">
-      <tr>
-        <th>開発言語</th>
-        <td>C言語、C#、C++、Java、HTML、CSS</td>
-      </tr>
-      <tr>
-        <th>開発環境</th>
-        <td>Unity、VisualStudio、VisualStudio Code、Unreal Engine4、GitHub</td>
-      </tr>
-    </table>
+/* =================================
+   ⑥ カード系
+================================= */
+.skills-grid,
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding-top: 20px;
+}
 
-  </section>
-</div>
+.skill-card,
+.work-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #000;
+}
 
+.work-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin: 10px 0;
+}
 
+/* =================================
+   ⑦ テーブル
+================================= */
+.profileTable {
+  border-collapse: collapse;
+  background: #fff;
+  box-shadow: 0 0 10px #000;
+  border-radius: 10px;
+  overflow: hidden;
+}
 
+.profileTable th,
+.profileTable td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #ddd;
+}
 
-<!-- 作ったゲーム -->
-<div id="gameWorks" class="page">
-  <section class="section">
-    <h1>制作物</h1>
-    <h1>自作</h1>
-    <div class="work-grid">
-      <div class="work-card">
-        <!-- テーブル -->
-        <table class="work-table">
+.profileTable th {
+  background: #f0f8ff;
+  font-weight: bold;
+  text-align: left;
+}
 
-          <!-- カードゲーム -->
-          <tr>
-            <!-- 動画 -->
-            <td class="video-cell">
-              <iframe
-              class="youtube"
-              src="https://www.youtube.com/embed/b3ghe7wB-cU"
-              allowfullscreen>
-              </iframe>
-            </td>
-            <!-- 説明 -->
-            <td class="desc-cell">
-              <h2>カード殲滅戦</h2>
-              <a href="detail/html/card.html" class="detail-btn">
-              ▶ 詳細ページ
-              </a>
-              <p><strong>概要</strong></p>
-              AIと対戦する1対1のターン制カードゲームです。<br>
-              バトル場に配置したキャラカードで戦い、
-              相手のキャラをすべて戦闘不能にしたプレイヤーが勝利となります。<br>
-              本作は「編成フェーズ」と「バトルフェーズ」の2段階構成となっており、<br>
-              戦略的なデッキ構築とターン制バトルの両方を楽しめる設計にしています。<br>
-              制作時間：約40時間<br>
-              環境：Unity<br>
-              プラットフォーム：Android<br>
-            </td>
-          </tr>
+/* 制作物テーブル */
+.work-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
 
-          <!-- スネーク -->
-          <tr>
-            <!-- 動画 -->
-            <td class="video-cell">
-              <video class="work-video zoom-item" controls muted>
-                <source src="mp/スネーク.mp4" type="video/mp4">
-              </video>
-            </td>
-            <!-- 説明 -->
-            <td class="desc-cell">
-              <h2>
-                スネーク
-              </h2>
-              <a href="detail/html/snake.html" class="detail-btn">
-              ▶ 詳細ページ
-              </a>
-              <p><strong>概要</strong></p>
-              舞台に出てくる餌を食べて大きくしてスコアを上げていくゲームです。<br>
-              頭を相手や壁に当てるとゲームオーバーです。<br>
-              制作時間：約20時間<br>
-              環境：Unity<br>
-              プラットフォーム：Android<br>
-            </td>
-          </tr>
-        
-          <!-- チェス -->
-          <tr>
-            <!-- 動画 -->
-            <td class="video-cell">
-              <video class="work-video zoom-item" controls muted>
-                <source src="mp/Chess.mp4" type="video/mp4">
-                <img src="img/Chess_cpp_2.png" class="zoom-item">
-                お使いのブラウザは動画に対応していません。
-              </video>
-            </td>
-            <!-- 説明 -->
-            <td class="desc-cell">
-              <h2>
-                チェス
-              </h2>
-              <a href="detail/html/Chess.html" class="detail-btn">
-              ▶ 詳細ページ
-              </a>
-              <p><strong>概要</strong></p>
-              チェスをC++で組みました<br>
-              制作時間：約14時間<br>
-              環境：C++<br>
-              プラットフォーム：Android<br>
-              <p><strong>アピールポイント</strong></p>
-              ・２次元配列リスト管理<br>
-              ・駒の動きをそれぞれ１つの関数で白黒を分けて動けるようにしている<br>
-            </td>
-          <tr>
-          </tr>
-        </table>
-      </div>
-    </div>
+.work-table td {
+  padding: 16px;
+  vertical-align: top;
+}
 
-    <h1>チーム制作</h1>
-    <div class="work-grid">
-      <div class="work-card">
-        <!-- テーブル -->
-        <table class="work-table">
-          <!-- ロボットファイト -->
-           <tr>
-            <!-- 動画 -->
-            <td class="video-cell">
-              <iframe
-              class="youtube"
-              src="https://www.youtube.com/embed/0Mkr4gwnp5U"
-              allowfullscreen>
-              </iframe>
-            </td>
-            <!-- 説明 -->
-            <td class="desc-cell">
-              <h2>
-                ロボットファイト  
-              </h2>
-              <a href="detail/html/robot.html" class="detail-btn">
-              ▶ 詳細ページ
-              </a>
-              <p><strong>概要</strong></p>
-              <p>
-              Unityで制作した1対1の3D格闘ゲームです。<br>
-            </p>
-            制作時間：約50時間<br>
-            環境：Unity<br>
-            プラットフォーム：PC、２つのコントローラー<br>
-            <p><strong>自分がしたところ</strong></p>
-            移動・ジャンプ・近接攻撃・飛び道具・防御といった
-            基本的な格闘アクションを実装しました。
-            プレイヤーの状態をステートマシンで管理し、
-            攻撃中・被弾中・防御中などの挙動を明確に分離しています。<br>
-            攻撃判定やダメージ処理もコンポーネント分割し、
-            拡張しやすい構造を意識して設計しました。
-            </td>
-          </tr>
+.video-cell { width: 40%; }
+.desc-cell { width: 60%; }
 
-          <!-- ピンポンダッシュ -->
-          <tr>
-            <!-- 動画 -->
-            <td class="video-cell">
-              <video class="work-video zoom-item" controls muted>
-                <source src="mp/PingPongDash.mp4" type="video/mp4">
-              </video>
-            </td>
-            <!-- 説明 -->
-            <td class="desc-cell">
-              <h2>PingPongDash</h2>
-              <p><strong>概要</strong></p>
-              PC向けに制作したアクションゲームです。<br>
-              プレイヤーは制限時間内に見回りの敵から身を隠しながら、
-              鐘を鳴らしてスコアを獲得していきます。<br><br>
-              
-              マウスを前後に動かすことで鐘を鳴らし、
-              マウスホイール操作で物陰に隠れることができます。<br>
-              鐘を鳴らしている間はスコアが増加しますが、
-              敵に発見されるとリスクが発生するため、
-              タイミングと判断力が求められる設計にしています。
-              制作時間：約30時間<br>
-              環境：Unity<br>
-              プラットフォーム：PC<br>
-              <p><strong>自分がしたところ</strong></p>
-              ・マウスによる動かしてスコア加算をやりました。<br>
-              ・ホイールすることで隠れるようにしました。<br>
-            </td>
-          </tr>
+.work-video {
+  width: 100%;
+  max-width: 400px;
+}
 
-          
-        </table>
-      </div>
-    </div>
-    </section>
-</div>
+/* =================================
+   ⑧ リンク
+================================= */
+.game-link {
+  text-decoration: none;
+  color: inherit;
+}
 
-<!-- 拡大表示モーダル -->
-<div id="media-modal">
-  <span id="modal-close">×</span>
-  <div id="modal-content"></div>
-</div>
+.game-link:hover {
+  color: #0077ff;
+}
 
-</body>
-</html>
+/* =================================
+   ⑨ モーダル
+================================= */
+.zoom-item {
+  cursor: zoom-in;
+}
+
+#media-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+}
+
+#modal-content img,
+#modal-content video {
+  max-width: 90%;
+  max-height: 90%;
+  box-shadow: 0 0 20px #000;
+}
+
+#modal-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* =================================
+   ⑩ コードギャラリー
+================================= */
+.code-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.code-item img {
+  width: 100%;
+  max-width: 700px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #000;
+}
+
+/* =================================
+   ⑪ レスポンシブ
+================================= */
+@media screen and (max-width: 768px) {
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .aboutContent {
+    flex-direction: column;
+  }
+
+  .myImg {
+    width: 150px;
+    height: 150px;
+  }
+
+  .work-table tr {
+    display: block;
+    margin-bottom: 30px;
+  }
+
+  .work-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .work-video {
+    max-width: 100%;
+  }
+
+  .section {
+    margin: 20px 10px;
+  }
+}
+
+.youtube{
+width:100%;
+max-width:400px;
+aspect-ratio:16/9;
+border:none;
+}
+
+/* 詳細ボタン */
+.detail-btn{
+  display:inline-block;
+  margin-top:10px;
+  padding:8px 18px;
+  background:#0077ff;
+  color:#fff;
+  text-decoration:none;
+  border-radius:6px;
+  font-weight:bold;
+  transition:0.2s;
+}
+
+.detail-btn:hover{
+  background:#005fcc;
+  transform:translateY(-2px);
+}
